@@ -415,7 +415,7 @@ int main( int argc, char *argv[] )
 		}
 	}
 
-	JE_tyrianHalt(0);
+//	JE_tyrianHalt(0);
 #ifdef _3DS
 	romfsExit();
 #endif
