@@ -48,7 +48,9 @@ endif
 #---------------------------------------------------------------------------------
 ARCH	:=	-march=armv6k -mtune=mpcore -mfloat-abi=hard
 
-CFLAGS	:=	-g -Wall -O2 $(ARCH) 
+CFLAGS	:=	-g -Wall -O2 -mword-relocations \
+			-fomit-frame-pointer -ffast-math \
+			$(ARCH) 
 
 CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS $(REV_FLAG) -DTARGET_$(PLATFORM)
 
@@ -57,7 +59,7 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11 -findirect-inlining
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=3dsx.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map) 
 
-LIBS	:=  -lsdl_mixer -lmikmod -lmad -lsdl_image -lsdl -lpng -ljpeg -lz -lcitro3d -lctru -lm
+LIBS	:=  -lSDL_mixer -lmikmod -lmad -lSDL_image -lSDL -lpng -ljpeg -lz -lcitro3d -lctru -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
