@@ -1511,6 +1511,7 @@ void JE_highScoreCheck( void )
 			play_song(33);
 
 			{
+#ifndef _3DS
 				/* Enter Thy name */
 
 				JE_byte flash = 8 * 16 + 10;
@@ -1653,7 +1654,12 @@ void JE_highScoreCheck( void )
 					}
 				}
 				while (!quit);
-
+#else
+	JE_boolean cancel = false;
+	char stemp[30];
+	char buffer[256];
+	strcpy(stemp, "3DS Player                   ");
+#endif
 				if (!cancel)
 				{
 					saveFiles[slot].highScore1 = temp_score;
